@@ -2,7 +2,7 @@ var express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
 var app = express()
-var port = process.env.PORT || 4000
+var port = process.env.PORT || 5000
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -35,10 +35,9 @@ var syncOptions = {force: false};
 //   syncOptions.force = true;
 // }
 
-const PORT = process.env.PORT || 4000;
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(port, function() {
-    console.log('Server is running on port: ' + PORT)
+    console.log('Server is running on port: ' + port)
   })
 });
 

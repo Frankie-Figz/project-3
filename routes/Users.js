@@ -9,6 +9,17 @@ users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
+users.get('/products_landing', (req,res) => {
+  db.products.findAll({
+    where: {
+      product_category_id : 4
+    }
+  })
+  .then(products => {
+    res.json(products);
+  })
+});
+
 users.post('/register', (req, res) => {
   const today = new Date()
   const userData = {

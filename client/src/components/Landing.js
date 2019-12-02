@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
 class Landing extends Component {
+  constructor() {
+    super()
+    this.state = {
+      products: []
+    }
+  }
+  
   render() {
     return (
       <div className="container">
