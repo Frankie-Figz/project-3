@@ -9,6 +9,62 @@ users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+users.get('/check_user_order', (req,res) => {
+  db.order.findOne({
+    where : {
+      user_id: req.user_id,
+      ispaid: req.ispaid
+    }
+  })
+  .then(response => {
+    return response.data
+  })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
+users.get('/check_orderlines', (req,res) => {
+  db.orderline.findOne({
+    where : {
+      order_id: req.order_id,
+      user_id: req.user_id,
+      ispaid: req.ispaid,
+      product_id: req.product_id
+    }
+  })
+  .then(response => {
+    return response.data
+  })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
+// Route for creating a new order
+users.post('/order', (req,res) => {
+  const today = new Date();
+  const orderData = {
+    order_date: today,
+    ispaid: false,
+    user_id: req.user_id,
+    document_number: getRandomInt(1000000000)
+  };
+  
+  db.order.create(orderData)
+    .then(order => {
+      console.log(order);
+      res.json({status: 'Order has been registed !'});
+    })
+    .catch(err => {
+      res.send('error: ' + err);
+    })
+});
+
 users.get('/products_landing', (req,res) => {
   // console.log(db.product);
   db.product.findAll({
@@ -32,7 +88,7 @@ users.post('/register', (req, res) => {
     email: req.body.email,
     password: req.body.password,
     created: today
-  }
+  };
 
   db.user.findOne({
     where: {

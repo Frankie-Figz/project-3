@@ -38,3 +38,17 @@ export const receive_products = () => {
       console.log(err);
     })
 }
+
+export const check_user_order = user => {
+  return axios
+    .get('users/check_user_order', {
+      user_id: user.user_id,
+      ispaid: false
+    })
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
