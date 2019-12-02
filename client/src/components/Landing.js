@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {receive_products} from './UserFunctions';
 import SearchResults from "./SearchResults";
+import Carousel from "./Carousel";
 
 class Landing extends Component {
   constructor(){
@@ -26,11 +27,15 @@ class Landing extends Component {
 
   render() {
     return (
+      
       <div className="container">
+         <Carousel />
         <div className="jumbotron mt-5">
           <div className="col-sm-8 mx-auto">
+         
             <h1 className="text-center">WELCOME---{this.state.products.length}</h1>
           </div>
+          
           <SearchResults results = {this.state.products}>
 
           </SearchResults>
