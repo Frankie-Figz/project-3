@@ -3,20 +3,24 @@ const users = express.Router()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const db = require("../models");
+const db = require("../models")
 // const User = require('../models/User')
 users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
 users.get('/products_landing', (req,res) => {
-  db.products.findAll({
+  // console.log(db.product);
+  db.product.findAll({
     where: {
       product_category_id : 4
     }
   })
   .then(products => {
     res.json(products);
+  })
+  .catch(err => {
+    res.send(err);
   })
 });
 

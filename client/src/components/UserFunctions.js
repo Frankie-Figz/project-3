@@ -27,3 +27,14 @@ export const login = user => {
       console.log(err)
     })
 }
+
+export const receive_products = () => {
+  return axios
+    .get('/users/products_landing')
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
