@@ -6,7 +6,7 @@ function SearchResults(props) {
     <ul className="list-group search-results">
       {props.results.map(result => (
         <li key={result.id} className="list-group-item">
-          <img alt="Dog" src={result.url} className="img-fluid" />
+          <img alt="Dog" src={result.url} className="img" />
           <div className="productText">
             <p>Product Name: {result.product_name}</p>
             <p>Product Description: {result.description}</p>

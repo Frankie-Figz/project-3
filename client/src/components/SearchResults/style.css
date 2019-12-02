@@ -7,8 +7,7 @@ ul.search-results img {
   float: left;
 }
 
-p {
-  padding: 15px;
-  font-size: 13px;
-}
+.productText {
+  margin-left: 250px;
+} 
 
