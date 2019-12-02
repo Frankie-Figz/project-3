@@ -1,0 +1,21 @@
+.carousel-item {
+  margin-left: 30%;
+ 
+   
+}
+
+.carousel-control-prev:after {
+    
+    content: '<';
+    font-size: 50px;
+    color: grey;
+    
+}
+
+.carousel-control-next:after {
+    
+    content: '>';
+    font-size: 50px;
+    color: grey;
+    
+}

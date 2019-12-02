@@ -1,0 +1,22 @@
+header {
+    background-color: rgb(196, 63, 63);
+}
+
+.container-fluid{
+margin-bottom: 20px;
+}
+
+.logo-img{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.header-nav-item {
+    display: inline-table;
+}
+
+.nav-link{
+    color: white;
+   
+}
