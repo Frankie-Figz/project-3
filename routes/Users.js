@@ -13,15 +13,48 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-users.get('/check_user_order', (req,res) => {
+users.post('/check_user_order', (req,res) => {
   db.order.findOne({
     where : {
-      user_id: req.user_id,
-      ispaid: req.ispaid
+      user_id: req.body.user_id,
+      ispaid: req.body.ispaid
     }
   })
   .then(response => {
-    return response.data
+    // return response.data
+    if(!response){
+      db.order.create({
+        user_id: req.body.user_id,
+        ispaid: req.body.ispaid
+      })
+      .then(order => {
+        console.log(order.id);
+        res.json({status: 'Order has been registed !'});
+      })
+      .catch(err => {
+        res.send('error: ' + err);
+      })
+
+      console.log("No data for order")
+      res.json({error: 'No Order Exists'})
+      // return response.data
+    }
+    else{
+      console.log(response.id);
+      db.orderline.create({
+        order_id : response.id,
+        product_id : parseInt(req.body.product_id),
+        qty : 1,
+        price : parseFloat(req.body.price),
+
+      }).then(lines => {
+        console.log(lines);
+      })
+      .catch(err => {
+        res.send('error: ' + err)
+      })
+      res.json({ error: "We in the money !"})
+    }
   })
   .catch(err => {
     console.log(err);
@@ -38,10 +71,11 @@ users.get('/check_orderlines', (req,res) => {
     }
   })
   .then(response => {
-    return response.data
+
   })
   .catch(err => {
     console.log(err);
+    res.send('error: ' + err);
   })
 });
 

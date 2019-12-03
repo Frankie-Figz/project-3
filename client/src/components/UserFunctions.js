@@ -40,11 +40,17 @@ export const receive_products = () => {
 }
 
 export const check_user_order = user => {
+
+  let userObj = {
+    user_id: user.user_id,
+    ispaid: user.ispaid,
+    price: user.price,
+    product_id: user.product_id
+  }
+
+  console.log('user',user.user_id);
   return axios
-    .get('users/check_user_order', {
-      user_id: user.user_id,
-      ispaid: false
-    })
+    .post('/users/check_user_order', userObj)
     .then(response => {
       return response.data
     })
