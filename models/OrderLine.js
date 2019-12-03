@@ -12,12 +12,25 @@ module.exports = function(sequelize, DataTypes) {
         },        
         description: {
             type: DataTypes.STRING
+        },
+        qty: {
+            type: DataTypes.NUMERIC
+        },
+        line_total: {
+            type: DataTypes.NUMERIC
+        },
+        price: {
+            type: DataTypes.NUMERIC
         }
     });
 
     orderline.associate = function(models){
         orderline.belongsTo(models.order, {
             foreignKey: "order_id"
+        });
+
+        orderline.belongsTo(models.product, {
+            foreignKey: "product_id"
         });
     };
     return orderline;

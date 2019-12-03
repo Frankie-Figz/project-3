@@ -37,14 +37,18 @@ class Landing extends Component {
                 </div>
               }
 
-              <div className="header-nav-item">
+              {/* <div className="header-nav-item">
                 <a className="nav-link" rel="noopener noreferrer">Shopping Cart</a>
-              </div>
+              </div> */}
 
               {localStorage.usertoken &&
                 <div>
                   <div className="header-nav-item">
-                    <Link to="/profile" className="nav-link">User</Link>
+                    <Link to="/profile" className="nav-link">User Profile</Link>
+                  </div>
+
+                  <div className="header-nav-item">
+                    <Link to="/shoppingcart" className="nav-link">Shopping Cart</Link>
                   </div>
 
                   <div className="header-nav-item">

@@ -1,22 +1,17 @@
 .carousel-item {
   margin-left: 30%;
-   
 }
 
 .carousel-control-prev:after {
-    
-    content: '<';
-    font-size: 50px;
-    color: grey;
-    
+  content: '<';
+  font-size: 50px;
+  color: grey;
 }
 
-.carousel-control-next:after {
-    
+.carousel-control-next:after {   
     content: '>';
     font-size: 50px;
-    color: grey;
-    
+    color: grey;    
 }
 
 #carouselExampleCaptions{
