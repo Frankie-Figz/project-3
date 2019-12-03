@@ -58,3 +58,19 @@ export const check_user_order = user => {
       console.log(err);
     })
 }
+
+export const check_orderlines = user => {
+  return axios
+    .get('/users/check_orderlines/3')
+    .then(response => {
+      // console.log(response);
+      return response.data;
+      // if(response)
+      //   return response
+      // else
+      //   console.log("No data");
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}

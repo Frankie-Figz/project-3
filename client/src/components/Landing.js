@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {receive_products, check_user_order} from './UserFunctions';
+import {receive_products, check_user_order, check_orderlines} from './UserFunctions';
 import SearchResults from "./SearchResults";
 import jwt_decode from 'jwt-decode'
 import Carousel from "./Carousel";
@@ -9,7 +9,7 @@ class Landing extends Component {
     super();
     this.state = {
       products: [],
-      user_id: 0
+      user_id: 3
     };
   }
 
@@ -31,7 +31,6 @@ class Landing extends Component {
       }
       // GOOD FROM HERE
       // console.log('infoOrder', infoOrder);
-
       check_user_order(infoOrder).then(res => {
         console.log(res);
         if(res){
@@ -50,7 +49,6 @@ class Landing extends Component {
   }
 
   updateProducts(param) {
-
     if(localStorage.userToken !== null){
       const token = localStorage.usertoken;
       const decoded = jwt_decode(token);
@@ -64,12 +62,16 @@ class Landing extends Component {
     console.log(this.state.products[0].url);
     console.log(this.state.products[0].product_category_id);
     console.log(this.state.user_id);
-
   }
 
   componentDidMount() {
     receive_products().then(res => {
       this.updateProducts(res);
+    });
+
+    console.log("Here is the orderlines : ");
+    check_orderlines(this.state.user_id).then(res => {
+      console.log(res);
     });
   }; 
 

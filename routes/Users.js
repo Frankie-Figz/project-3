@@ -61,22 +61,35 @@ users.post('/check_user_order', (req,res) => {
   })
 });
 
-users.get('/check_orderlines', (req,res) => {
-  db.orderline.findOne({
-    where : {
-      order_id: req.order_id,
-      user_id: req.user_id,
-      ispaid: req.ispaid,
-      product_id: req.product_id
-    }
+users.get('/check_orderlines/:user_id', (req,res) => {
+  console.log("I am here beginning the GET of Orderlines");
+  db.order.findOne({
+    user_id: parseInt(req.params.user_id),  
+    ispaid: false
   })
-  .then(response => {
-
+  .then(resTwo => {
+    console.log("I am here trying to find orderlines");
+    db.orderline.findAll({
+      where : {
+        order_id: resTwo.id
+      }
+    })
+    .then(response => {
+      // if(response)
+      console.log("Here is the response : ");
+      console.log(response);
+      res.json(response);
+    })
+    .catch(err => {
+      console.log(err);
+      res.send('error: ' + err);
+    })
+    
   })
   .catch(err => {
     console.log(err);
     res.send('error: ' + err);
-  })
+  });
 });
 
 // Route for creating a new order
