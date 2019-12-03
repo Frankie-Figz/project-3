@@ -1,6 +1,5 @@
 .carousel-item {
   margin-left: 30%;
- 
    
 }
 
@@ -18,4 +17,13 @@
     font-size: 50px;
     color: grey;
     
+}
+
+#carouselExampleCaptions{
+  height: 30vh;
+}
+
+.carousel-img {
+  width: auto;
+  height: 30vh;
 }
