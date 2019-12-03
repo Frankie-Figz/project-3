@@ -20,32 +20,32 @@ function Carousel() {
                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
             </ol> */}
             <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img src={img1} width="40%" height="40%" alt="app-logo"/>
-                    
-                </div>
-            <div className="carousel-item">
-            <img src={img2} width="40%" height="40%" alt="app-logo"/>
+            <div className="carousel-item active">
+                <img class="carousel-img" src={img1} alt="app-logo"/>
                 
             </div>
             <div className="carousel-item">
-            <img src={img3} width="40%" height="40%" alt="app-logo"/>
+            <img class="carousel-img" src={img2} alt="app-logo"/>
                 
             </div>
             <div className="carousel-item">
-            <img src={img4} width="40%" height="40%" alt="app-logo"/>
+            <img class="carousel-img" src={img3} alt="app-logo"/>
                 
             </div>
             <div className="carousel-item">
-            <img src={img5} width="40%" height="40%" alt="app-logo"/>
+            <img class="carousel-img" src={img4} alt="app-logo"/>
+                
+            </div>
+            <div className="carousel-item">
+            <img class="carousel-img" src={img5} alt="app-logo"/>
                
             </div>
             <div className="carousel-item">
-            <img src={img6} width="40%" height="40%" alt="app-logo"/>
+            <img class="carousel-img" src={img6} alt="app-logo"/>
                
             </div>
             <div className="carousel-item">
-            <img src={img7} width="40%" height="40%" alt="app-logo"/>
+            <img class="carousel-img" src={img7} alt="app-logo"/>
                
             </div>
         </div>
