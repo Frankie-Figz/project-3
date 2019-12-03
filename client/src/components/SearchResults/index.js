@@ -9,7 +9,9 @@ function SearchResults(props) {
           <img alt={result.id} src={result.url} className="img" />
           <div className="productText">
             <p>Product Name: {result.product_name}</p>
+            <hr />
             <p>Product Description: {result.description}</p>
+            <hr />
             <p>Price: ${result.price}</p>
             <button type = "submit" id = {result.id} price = {result.price} onClick = {props.addProductToCart} className="addButton">Add to Shopping Cart</button>
           </div>

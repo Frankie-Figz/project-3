@@ -77,16 +77,10 @@ class Landing extends Component {
     return (
       
       <div className="container">
-         <Carousel />
-        <div className="jumbotron mt-5">
-          <div className="col-sm-8 mx-auto">
-            <h1 className="text-center">WELCOME{this.state.products.length}</h1>
-          </div>
-          
+        <Carousel />
+          <div className="col-sm-8 mx-auto"></div>
           <SearchResults results = {this.state.products} addProductToCart = {this.addProductToCart}>
-
           </SearchResults>
-        </div>
       </div>
     )
   }
