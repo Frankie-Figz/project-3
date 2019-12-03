@@ -8,8 +8,17 @@
   color: grey;
 }
 
-.carousel-control-next:after {
-  content: '>';
-  font-size: 50px;
-  color: grey;
+.carousel-control-next:after {   
+    content: '>';
+    font-size: 50px;
+    color: grey;    
+}
+
+#carouselExampleCaptions{
+  height: 30vh;
+}
+
+.carousel-img {
+  width: auto;
+  height: 30vh;
 }
