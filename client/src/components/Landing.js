@@ -10,7 +10,7 @@ class Landing extends Component {
     super();
     this.state = {
       products: [],
-      user_id: 3
+      user_id: jwt_decode(localStorage.usertoken).id | 1
     };
   }
 
@@ -50,11 +50,11 @@ class Landing extends Component {
   }
 
   updateProducts(param) {
-    if(localStorage.userToken !== null){
-      const token = localStorage.usertoken;
-      const decoded = jwt_decode(token);
-      this.setState({user_id:decoded.id});
-    }
+    // if(localStorage.usertoken !== null){
+    //   const token = localStorage.usertoken;
+    //   const decoded = jwt_decode(token);
+    //   this.setState({user_id:decoded.id});
+    // }
 
     this.setState({products:param});
 

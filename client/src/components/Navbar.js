@@ -48,7 +48,7 @@ class Landing extends Component {
                   </div>
 
                   <div className="header-nav-item">
-                    <Link to="/shoppingcart" className="nav-link">Shopping Cart</Link>
+                    <Link to="/cart" className="nav-link">Shopping Cart</Link>
                   </div>
 
                   <div className="header-nav-item">
