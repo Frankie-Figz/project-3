@@ -14,7 +14,13 @@
   color: grey;
 }
 
-#carouselExampleCaptions {
+.carousel-control-next:after {   
+    content: '>';
+    font-size: 50px;
+    color: grey;    
+}
+
+#carouselExampleCaptions{
   height: 30vh;
 }
 

@@ -4,6 +4,7 @@ import SearchResults from "./SearchResults";
 import jwt_decode from 'jwt-decode'
 import Carousel from "./Carousel";
 
+
 class Landing extends Component {
   constructor(){
     super();
@@ -79,9 +80,15 @@ class Landing extends Component {
     return (
       
       <div className="container">
-        <Carousel />
-          <div className="col-sm-8 mx-auto"></div>
+         <Carousel />
+        {/* <div className="jumbotron mt-5"> */}
+          <div className="col-sm-8 mx-auto">
+         
+            {/* <h1 className="text-center">WELCOME---{this.state.products.length}</h1> */}
+          </div>
+          
           <SearchResults results = {this.state.products} addProductToCart = {this.addProductToCart}>
+
           </SearchResults>
       </div>
     )
