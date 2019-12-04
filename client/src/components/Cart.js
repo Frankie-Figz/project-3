@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+
 import {check_orderlines, update_order} from "./UserFunctions";
 import jwt_decode from 'jwt-decode'
 // import "./style.css";
@@ -38,6 +39,7 @@ class Cart extends Component {
         check_orderlines(this.state.user_id).then(res => {
             if(res !== "No Order")
                 this.updateOrderlines(res);
+
         })
     }
 

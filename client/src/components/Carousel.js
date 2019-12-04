@@ -21,31 +21,31 @@ function Carousel() {
             </ol> */}
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img class="carousel-img" src={img1} alt="cute-pic" />
+                        <img className="carousel-img" src={img1} alt="cute-pic" />
 
                     </div>
                     <div className="carousel-item">
-                        <img class="carousel-img" src={img2} alt="cute-pic" />
+                        <img className="carousel-img" src={img2} alt="cute-pic" />
 
                     </div>
                     <div className="carousel-item">
-                        <img class="carousel-img" src={img3} alt="cute-pic" />
+                        <img className="carousel-img" src={img3} alt="cute-pic" />
 
                     </div>
                     <div className="carousel-item">
-                        <img class="carousel-img" src={img4} alt="cute-pic" />
+                        <img className="carousel-img" src={img4} alt="cute-pic" />
 
                     </div>
                     <div className="carousel-item">
-                        <img class="carousel-img" src={img5} alt="cute-pic" />
+                        <img className="carousel-img" src={img5} alt="cute-pic" />
 
                     </div>
                     <div className="carousel-item">
-                        <img class="carousel-img" src={img6}  alt="cute-pic" />
+                        <img className="carousel-img" src={img6}  alt="cute-pic" />
 
                     </div>
                     <div className="carousel-item">
-                        <img class="carousel-img" src={img7} alt="cute-pic" />
+                        <img className="carousel-img" src={img7} alt="cute-pic" />
 
                     </div>
                 </div>
