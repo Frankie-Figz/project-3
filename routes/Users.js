@@ -13,6 +13,26 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+users.post('/update_order', (req,res) => {
+  db.order.update(
+    {
+      ispaid : 1
+    },
+    {where : 
+      {
+      id: req.body.order_id
+      }
+    }
+  )
+  .then(order => {
+    console.log(order);
+    res.json({status: "Order has been paid !"});
+  })
+  .catch(err => {
+    res.send('error: ' + err);
+  })
+});
+
 users.post('/check_user_order', (req,res) => {
   db.order.findOne({
     where : {
@@ -63,27 +83,40 @@ users.post('/check_user_order', (req,res) => {
 
 users.get('/check_orderlines/:user_id', (req,res) => {
   console.log("I am here beginning the GET of Orderlines");
-  db.order.findOne({
-    user_id: parseInt(req.params.user_id),  
-    ispaid: false
-  })
-  .then(resTwo => {
-    console.log("I am here trying to find orderlines");
-    db.orderline.findAll({
-      where : {
-        order_id: resTwo.id
+  db.order.findOne(
+    {
+      where : 
+      {
+        user_id: req.params.user_id,  
+        ispaid: false
       }
     })
-    .then(response => {
-      // if(response)
-      console.log("Here is the response : ");
-      console.log(response);
-      res.json(response);
-    })
-    .catch(err => {
-      console.log(err);
-      res.send('error: ' + err);
-    })
+  .then(resTwo => {
+    console.log("I am here trying to find orderlines");
+    if(resTwo){
+      db.orderline.findAll({
+        where : {
+          order_id: resTwo.id
+        },
+        include: [{model: db.product , include : [db.brand] }]
+      })
+      .then(response => {
+        if(response){
+          res.json(response);
+        } else {
+          res.json({ error: 'No Orderlines' })
+        }
+        // console.log("Here is the response : ");
+        // console.log(response);
+        // res.json(response);
+      })
+      .catch(err => {
+        console.log(err);
+        res.send('error: ' + err);
+      })
+    } else {
+      res.send('No Order');
+    }
     
   })
   .catch(err => {

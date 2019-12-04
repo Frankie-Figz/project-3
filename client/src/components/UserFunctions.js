@@ -61,7 +61,7 @@ export const check_user_order = user => {
 
 export const check_orderlines = user => {
   return axios
-    .get('/users/check_orderlines/1')
+    .get('/users/check_orderlines/' + user)
     .then(response => {
       // console.log(response);
       return response.data;
@@ -73,4 +73,15 @@ export const check_orderlines = user => {
     .catch(err => {
       console.log(err);
     })
+}
+
+export const update_order = order => {
+  return axios
+    .post('/users/update_order', order)
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
